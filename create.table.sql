@@ -1,3 +1,3 @@
 create table department(
-id bumber, name varchar2(100)
+id number, name varchar2(100)
 );

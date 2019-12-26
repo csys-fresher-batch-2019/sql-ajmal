@@ -1,0 +1,13 @@
+create table employee (
+id number(5) unique,
+name varchar2(30) not null,
+gender varchar2(1),
+salary number(20),
+rela_tatus varchar2(20),
+dob date,
+department varchar2(20),
+date_of_join date default sysdate);
+insert into employee (id,name,gender,salary,rela_tatus,dob,department) values (1101,'ajmal','M',25000,'Single','06-04-1999','HR');
+insert into employee (id,name,gender,salary,rela_tatus,dob,department) values (1102,'mohan','F',20000,'Married','02-03-1997','HR');
+insert into employee (id,name,gender,salary,rela_tatus,dob,department) values (1103,'suri','M',23000,'Single','03-02-1994','DBMS');
+insert into employee (id,name,gender,salary,rela_tatus,dob,department) values (1104,'deepan','M',15000,'Single','06-03-1995','ADMIN');

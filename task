@@ -1,0 +1,12 @@
+create table task(
+software varchar2 (20) not null,
+installed_by varchar(20),
+deadline date,
+completed_on date,
+constraint intsalled_by_uq unique(installed_by)
+constraint completed_date_ch check(completed_on < deadline));
+
+insert into task (software,intalled_by,deadline,completed_on) values ('oracle','ajmal','20-12-2019','22-12-2019');
+insert into task (software,intalled_by,deadline,completed_on) values ('oracle','mohan','21-12-2019','25-12-2019');
+
+select * form task;

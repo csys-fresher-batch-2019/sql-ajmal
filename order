@@ -21,3 +21,27 @@ insert into book (book_id,book_name,author_name,price,publisher_name,catagory,ve
 values (115,'Control System','Dr.Will juice',20,'As.samuvel','Knowledge',1);
 insert into book (book_id,book_name,author_name,price,publisher_name,catagory,version)
 values (116,'Electrical Meachines','Dr.Siva',150,'As.vicky','Knowledge',2);
+select * from book;
+
+
+create table orders(
+  order_id number(20) not null, 
+  user_name varchar2(100) not null, 
+  book_id number(20) not null,
+  ord_date timestamp default SYSTIMESTAMP,
+  delivered_date timestamp,
+  ord_price number(20),
+  amount_total number(20) not null,
+  quantity number(20) not null,
+  order_status varchar2(20) ,
+  comments varchar2(100),
+  constraint order_id_pk primary key (order_id),
+  constraint amount_total_ck check (amount_total>0),
+  constraint quantity_ck check (quantity>0),
+  constraint book_id_fr foreign key (book_id) references book(book_id));
+  
+create sequence order_id_seq start with 1 increment by 1;
+insert into orders (order_id,user_name,book_id,quantity,amount_total)
+values (order_id_seq.nextval,'ajmal',112,2,(select price from book where book_id=112));
+select * from  orders
+select * from book

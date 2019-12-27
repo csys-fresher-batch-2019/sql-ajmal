@@ -1,0 +1,23 @@
+create table book (
+  book_id number(10) not null, 
+  book_name varchar2(100) not null, 
+  author_name varchar2(100),
+  price number(20) not null,
+  publisher_name varchar2(100) not null,
+  version number(20) ,
+  catagory varchar2(20) not null,
+  active_status number(2) default 1,
+  constraint book_id_pk primary key (book_id),
+  constraint price_ck check (price>0),
+  constraint name_uq unique (book_name, author_name, version)
+);
+insert into book (book_id,book_name,author_name,price,publisher_name,catagory,version)
+values (112,'Bussiness at the level of Thoughts','Dr.Ajmal Ahamed',20000,'As.Mohan','Bussiness',2);
+insert into book (book_id,book_name,author_name,price,publisher_name,catagory,version)
+values (113,'Bussiness at the level of Knowledge','Dr.Ajmal Ahamed',10000,'As.Santosh','Bussiness',3);
+insert into book (book_id,book_name,author_name,price,publisher_name,catagory,version)
+values (114,'Electronic circuits','Dr.Samuvel',200,'As.depan','Knowledge',1);
+insert into book (book_id,book_name,author_name,price,publisher_name,catagory,version)
+values (115,'Control System','Dr.Will juice',20,'As.samuvel','Knowledge',1);
+insert into book (book_id,book_name,author_name,price,publisher_name,catagory,version)
+values (116,'Electrical Meachines','Dr.Siva',150,'As.vicky','Knowledge',2);

@@ -13,7 +13,7 @@ book_cat varchar2(100) not null,
 book_author varchar2(100),
 book_edition number(10),
 book_price number(10)
-constraint book_id_pk primary key (book_id)
+constraint book_id_pk primary key (book_id),
 constraint book_id_pk primary key (book_id)););
 
 create sequence id_seq start with 001 and increment by 1;

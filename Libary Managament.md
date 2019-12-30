@@ -19,15 +19,15 @@ constraint book_id_pk primary key (book_id)););
 create sequence id_seq start with 001 increment by 1;
 
 insert into books(book_id,book_name,book_cat,book_author,book_edition) 
-values (id_seq nextval,'Electronic Devices and Circuits','Electronics','Boylested,Robert.L',1);
+values (id_seq.nextval,'Electronic Devices and Circuits','Electronics','Boylested,Robert.L',1);
 insert into books(book_id,book_name,book_cat,book_author,book_edition,book_price)
-values (id_seq nextval,'Ciruit Theory','Electrical','salaivananan',2,158);
+values (id_seq.nextval,'Ciruit Theory','Electrical','salaivananan',2,158);
 insert into books(book_id,book_name,book_cat,book_author,book_edition)
-values (id_seq nextval,'Bsuiness @ The Speed of Thought','Bussiness','Bill Gates',1);
+values (id_seq.nextval,'Bsuiness @ The Speed of Thought','Bussiness','Bill Gates',1);
 insert into books(book_id,book_name,book_cat,book_author,book_edition,book_price)
-values (id_seq nextval,'THE LIFE,LESSON&RULES FOR SUCCESS','Bussiness','Bill Gates',1,748);
+values (id_seq.nextval,'THE LIFE,LESSON&RULES FOR SUCCESS','Bussiness','Bill Gates',1,748);
 insert into books(book_id,book_name,book_cat,book_author,book_edition)
-values (id_seq nextval,'Gone with the Wind','Entertainment','Margaret Mitchell',1);
+values (id_seq.nextval,'Gone with the Wind','Entertainment','Margaret Mitchell',1);
 
 ```
 ### Query

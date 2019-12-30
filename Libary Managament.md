@@ -15,6 +15,11 @@ book_edition number(10),
 book_price number(10)
 constraint book_id_pk primary key (book_id));
 
+create sequence id_seq start with 001 and increment by 1;
+
+insert into books(book_id,book_name,book_cat,book_author,book_edition) 
+values (id_seq nextval,'Electronic Devices and Circuits','Studies','Boylested,Robert.L',1);
+
 
 ###Query
 

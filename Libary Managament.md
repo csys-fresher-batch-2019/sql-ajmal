@@ -1,10 +1,10 @@
-#Libary_Management
+# Libary_Management
 * http://libarydetails.in
 
-##Features
+## Features
 *List of Books and their maintainence record.
 
-###Feature 1: List of book details.
+### Feature 1: List of book details.
 
 create table books (
 book_id number(10) not null unique,

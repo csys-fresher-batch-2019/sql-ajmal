@@ -28,8 +28,8 @@ values (id_seq nextval,'THE LIFE,LESSON&RULES FOR SUCCESS','Bussiness','Bill Gat
 insert into books(book_id,book_name,book_cat,book_author,book_edition)
 values (id_seq nextval,'Gone with the Wind','Entertainment','Margaret Mitchell',1);
 
-
+```
 ### Query
-
+```
 select * from books
 ```

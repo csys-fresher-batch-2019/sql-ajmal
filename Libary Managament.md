@@ -5,7 +5,7 @@
 *List of Books and their maintainence record.
 
 ### Feature 1: List of book details.
-
+```sql
 create table books (
 book_id number(10) not null unique,
 book_name varchar2(100) not null,
@@ -29,6 +29,7 @@ insert into books(book_id,book_name,book_cat,book_author,book_edition)
 values (id_seq nextval,'Gone with the Wind','Entertainment','Margaret Mitchell',1);
 
 
-###Query
+### Query
 
 select * from books
+```

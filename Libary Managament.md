@@ -19,6 +19,10 @@ create sequence id_seq start with 001 and increment by 1;
 
 insert into books(book_id,book_name,book_cat,book_author,book_edition) 
 values (id_seq nextval,'Electronic Devices and Circuits','Electronics','Boylested,Robert.L',1);
+insert into books(book_id,book_name,book_cat,book_author,book_edition,book_price)
+values (id_seq nextval,'Ciruit Theory','Electrical','salaivananan',2,158);
+insert into books(book_id,book_name,book_cat,book_author,book_edition)
+values (id_seq nextval,'Bsuiness @ The Speed of Thought','Bussiness','Bill Gates',1);
 
 
 ###Query

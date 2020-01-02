@@ -33,14 +33,14 @@ values (id_seq.nextval,'Gone with the Wind','Entertainment','Margaret Mitchell',
 
 ```
 ### Query
-```
+```sql
 select * from books
 ```
 
 
 ### Feature 2: List of Student details.
 
-```
+```sql
 create table student(
 std_id number(20),
 std_name varchar2(30) not null,
@@ -66,6 +66,6 @@ values (std_seq.nextval,'suri','MECH',to_date ('15-FEB-1998','dd-MM-yyyy'),'suri
 ```
 
 ### Query
-```
+```sql
 select * from student;
 ```

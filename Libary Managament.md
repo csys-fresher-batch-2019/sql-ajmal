@@ -252,3 +252,11 @@ details_pr(i_book_id,i_std_id,i_returned_date, v_error );
 END;
 
 ```
+scenario
+```sql
+--number of person who has not returned the books
+select count(book_id) from details where returned_date is null;
+
+--number of books that a student taken
+select count(book_id) from details where std_id=&std_id;
+```

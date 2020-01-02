@@ -90,8 +90,8 @@ create table details(
 book_count number(20)not null,
 book_id number(20) not null,
 std_id number(10) not null,
-issue_date date default sysdate,
-due_date date default(sysdate+15),
+issue_date date ,
+due_date date ,
 returned_date date,
 fine_amt number(20),
 constraint book_id_fk foreign key (book_id) references books(book_id),
@@ -100,6 +100,21 @@ constraint std_id_fk foreign key (std_id) references student(std_id),
 constraint details_uq unique (book_id,std_id));
 
 create sequence book_count_sq start with 1 increment by 1;
+
+insert into details(book_id,std_id,issue_date,due_date,book_count)
+values (101,1001,to_date ('12-APR-2019','dd-MM-yyyy'),to_date('27-APR-2019','dd-MM-yyyy'),book_count_sq.nextval);
+insert into details(book_id,std_id,issue_date,due_date,book_count)
+values (102,1001,to_date ('12-MAY-2019','dd-MM-yyyy'),to_date('27-MAY-2019','dd-MM-yyyy'),book_count_sq.nextval);
+insert into details(book_id,std_id,issue_date,due_date,book_count)
+values (104,1002,to_date ('12-JUN-2019','dd-MM-yyyy'),to_date('27-JUN-2019','dd-MM-yyyy'),book_count_sq.nextval);
+insert into details(book_id,std_id,issue_date,due_date,book_count)
+values (105,1003,to_date ('12-DEC-2019','dd-MM-yyyy'),to_date ('27-DEC-2019','dd-MM-yyyy'),book_count_sq.nextval);
+insert into details(book_id,std_id,issue_date,due_date,book_count)
+values (103,1002,to_date ('12-NOV-2019','dd-MM-yyyy'),to_date ('27-NOV-2019','dd-MM-yyyy'),book_count_sq.nextval);
+insert into details(book_id,std_id,issue_date,due_date,book_count)
+values (102,1004,to_date ('13-DEC-2019','dd-MM-yyyy'),to_date ('28-DEC-2019','dd-MM-yyyy'),book_count_sq.nextval);
+insert into details(book_id,std_id,issue_date,due_date,book_count)
+values (103,1005,to_date ('12-NOV-2019','dd-MM-yyyy'),to_date ('27-NOV-2019','dd-MM-yyyy'),book_count_sq.nextval);
 
 create or replace procedure details_pr
 (i_book_id number,
@@ -121,9 +136,6 @@ exception when others then
 v_error :='invalid input'; 
 end details_pr;
 
-insert into details(book_count,book_id,std_id)
-values (book_count_sq.nextval,101,1001);
-
 DECLARE
 i_book_id number:= 101 ;
 i_std_id number:= 1001 ;
@@ -132,6 +144,43 @@ v_error varchar2(100);
 BEGIN
 details_pr(i_book_id,i_std_id,i_returned_date, v_error );
 END;
+DECLARE
+i_book_id number:= 102 ;
+i_std_id number:= 1001 ;
+i_returned_date date:= sysdate;
+v_error varchar2(100);
+BEGIN
+details_pr(i_book_id,i_std_id,i_returned_date, v_error );
+END;
+DECLARE
+i_book_id number:= 104 ;
+i_std_id number:= 1002 ;
+i_returned_date date:= sysdate;
+v_error varchar2(100);
+BEGIN
+details_pr(i_book_id,i_std_id,i_returned_date, v_error );
+END;
+DECLARE
+i_book_id number:= 105 ;
+i_std_id number:= 1003 ;
+i_returned_date date:= sysdate;
+v_error varchar2(100);
+BEGIN
+details_pr(i_book_id,i_std_id,i_returned_date, v_error );
+END;
+DECLARE
+i_book_id number:= 103 ;
+i_std_id number:= 1002 ;
+i_returned_date date:= sysdate;
+v_error varchar2(100);
+BEGIN
+details_pr(i_book_id,i_std_id,i_returned_date, v_error );
+END;
+```
+### Alteraton
+```sql
+alter table details modify issue_date date default sysdate;
+alter table details modify due_date date default sysdate+15;
 
 ```
 ### Query
@@ -147,8 +196,8 @@ values (id_seq.nextval,'&book_name','&book_cat','&book_author',&book_edition,&no
 insert into student(std_id,std_name,std_dept,std_dob,std_mail_id,std_mob_no,joining_yr,pass_yr)
 values (std_seq.nextval,'&std_name','&std_dept',to_date ('&std_dob','dd-MM-yyyy'),'&std_mail_id',&std_mob_no,&joining_yr,&pass_yr);
 
-insert into details(book_count,book_id,std_id)
-values (book_count_sq.nextval,&book_id,&std_id);
+insert into details(,book_id,std_id,book_count)
+values (&book_id,&std_id,book_count_sq.nextval);
 
 DECLARE
 i_book_id number:= &book_id ;

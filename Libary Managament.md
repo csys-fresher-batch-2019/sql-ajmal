@@ -90,8 +90,8 @@ create table details(
 book_count number(20)not null,
 book_id number(20) not null,
 std_id number(10) not null,
-issue_date date ,
-due_date date ,
+issue_date date default sysdate,
+due_date date default sysdate+15,
 returned_date date,
 fine_amt number(20),
 constraint book_id_fk foreign key (book_id) references books(book_id),
@@ -177,10 +177,6 @@ BEGIN
 details_pr(i_book_id,i_std_id,i_returned_date, v_error );
 END;
 ```
-### Alteraton
-```sql
-alter table details modify issue_date date default sysdate;
-alter table details modify due_date date default sysdate+15;
 
 ```
 ### Query

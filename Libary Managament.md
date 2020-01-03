@@ -298,3 +298,8 @@ select count(book_id)from details where book_id=&book_id and returned_date is nu
 * no of books available from libare
 ```sql
 select no_of_bks from books where book_id = &book_id;
+
+* no of books available now
+```sql
+select (b.no_of_bks -(select count(d.book_id)) from books b,details d where book_id =&book_id and d.returned_date is null;
+```

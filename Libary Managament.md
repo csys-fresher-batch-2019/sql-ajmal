@@ -226,19 +226,25 @@ After updation.
 |      8     |   103   |  1004  |  12-11-19  | 27-11-19 |               |      |
 +------------+---------+--------+------------+----------+---------------+------+
 ```
-
+## SCENARIO
 ### Insertion Part
+* Creating a new student id.
 ```sql
 insert into student(std_name,std_dept,std_dob,std_mail_id,std_mob_no,joining_yr,pass_yr,std_id)
 values ('&std_name','&std_dept',to_date ('&std_dob','dd-MM-yyyy'),'&std_mail_id',&std_mob_no,&joining_yr,&pass_yr,std_seq.nextval);
-
+```
+* Inserting a new book into table
+```sql
 insert into books(book_name,book_cat,book_author,book_edition,no_of_bks,no_of_pgs,purchased_date,book_id)
 values ('&book_name','&book_cat','&book_author',&book_edition,&no_of_bks,&no_of_pgs,&purchased_date,id_seq.nextval);
-
+```
+* Insertion of entry of book
+```sql
 insert into details(book_id,std_id,book_count)
 values (&book_id,&std_id,book_count_sq.nextval);
-
-
+```
+* Updation of return record
+```sql
 DECLARE
 i_book_id number:= &book_id ;
 i_std_id number:= &std_id ;
@@ -249,11 +255,12 @@ details_pr(i_book_id,i_std_id,i_returned_date, v_error );
 END;
 
 ```
-scenario
+number of person who has not returned the books
 ```sql
---number of person who has not returned the books
-select count(book_id) from details where returned_date is null;
 
---number of books that a student taken
+select count(book_id) from details where returned_date is null;
+```
+number of books that a student taken
+```sql
 select count(book_id) from details where std_id=&std_id;
 ```

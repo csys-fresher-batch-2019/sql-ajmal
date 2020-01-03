@@ -307,7 +307,19 @@ select count(book_id)from details where book_id=&book_id and returned_date is nu
 ```sql
 select no_of_bks from books where book_id = &book_id;
 
-* no of books available now
+* no of books available now using function.
 ```sql
-select (b.no_of_bks -(select count(d.book_id)) from books b,details d where book_id =&book_id and d.returned_date is null;
+create or replace function fn_rem_bks(i_book_id number)
+return number as
+    v_remaing_books number;
+    v_no_of_bks number;
+    v_taken number;
+begin
+    select no_of_bks into v_no_of_bks from books where book_id = i_book_id;
+    select count(book_id) into v_taken from details where book_id = i_book_id and returned_date is null;
+    v_remaing_books := v_no_of_bks - v_taken;
+return v_remaing_books;
+end fn_rem_bks;
+
+select fn_rem_bks (102) from dual;
 ```

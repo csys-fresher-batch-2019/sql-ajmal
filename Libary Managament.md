@@ -23,20 +23,16 @@ constraint no_of_bks_ck check (no_of_bks>0));
 
 create sequence id_seq start with 101 increment by 1;
 
-insert into books(book_id,book_name,book_cat,book_author,book_edition,no_of_bks,no_of_pgs,purchased_date)
-values (id_seq.nextval,'Electronic Devices and Circuits','Electronics','Boylested,Robert.L',1,20,342,to_date ('15-FEB-1998','dd-MM-yyyy'));
-
-insert into books(book_id,book_name,book_cat,book_author,book_edition,book_price,no_of_bks,no_of_pgs,purchased_date)
-values (id_seq.nextval,'Ciruit Theory','Electrical','salaivananan',2,158,10,234,to_date ('15-FEB-2015','dd-MM-yyyy'));
-
-insert into books(book_id,book_name,book_cat,book_author,book_edition,no_of_bks,no_of_pgs,purchased_date)
-values (id_seq.nextval,'Bsuiness @ The Speed of Thought','Bussiness','Bill Gates',1,25,145,to_date ('15-FEB-2017','dd-MM-yyyy'));
-
-insert into books(book_id,book_name,book_cat,book_author,book_edition,book_price,no_of_bks,no_of_pgs,purchased_date)
-values (id_seq.nextval,'THE LIFE,LESSON_RULES FOR SUCCESS','Bussiness','Bill Gates',1,748,15,234,to_date ('15-FEB-2017','dd-MM-yyyy'));
-
-insert into books(book_id,book_name,book_cat,book_author,book_edition,no_of_bks,no_of_pgs,purchased_date)
-values (id_seq.nextval,'Gone with the Wind','Entertainment','Margaret Mitchell',1,5,543,to_date ('15-FEB-2017','dd-MM-yyyy'));
+insert into books(book_name,book_cat,book_author,book_edition,no_of_bks,no_of_pgs,purchased_date,book_id)
+values (,'Electronic Devices and Circuits','Electronics','Boylested,Robert.L',1,20,342,to_date ('15-FEB-1998','dd-MM-yyyy'),id_seq.nextval);
+insert into books(book_name,book_cat,book_author,book_edition,book_price,no_of_bks,no_of_pgs,purchased_date,book_id)
+values ('Ciruit Theory','Electrical','salaivananan',2,158,10,234,to_date ('15-FEB-2015','dd-MM-yyyy'),id_seq.nextval);
+insert into books(book_name,book_cat,book_author,book_edition,no_of_bks,no_of_pgs,purchased_date,book_id)
+values ('Bsuiness @ The Speed of Thought','Bussiness','Bill Gates',1,25,145,to_date ('15-FEB-2017','dd-MM-yyyy'),id_seq.nextval);
+insert into books(book_name,book_cat,book_author,book_edition,book_price,no_of_bks,no_of_pgs,purchased_date,book_id)
+values ('THE LIFE,LESSON_RULES FOR SUCCESS','Bussiness','Bill Gates',1,748,15,234,to_date ('15-FEB-2017','dd-MM-yyyy'),id_seq.nextval);
+insert into books(book_name,book_cat,book_author,book_edition,no_of_bks,no_of_pgs,purchased_date,book_id)
+values ('Gone with the Wind','Entertainment','Margaret Mitchell',1,5,543,to_date ('15-FEB-2017','dd-MM-yyyy'),id_seq.nextval);
 
 ```
 ### Query
@@ -81,17 +77,17 @@ constraint std_id_pk primary key (std_id));
 
 create sequence std_seq start with 1001 increment by 1;
 
-insert into student(std_id,std_name,std_dept,std_dob,std_mail_id,std_mob_no,joining_yr,pass_yr)
-values (std_seq.nextval,'mohumkumar','EEE',to_date ('02-JAN-1993','dd-MM-yyyy'),'mohu.momo@hotmail.com',8616261872,2016,2022);
+insert into student(std_name,std_dept,std_dob,std_mail_id,std_mob_no,joining_yr,pass_yr,std_id)
+values ('mohumkumar','EEE',to_date ('02-JAN-1993','dd-MM-yyyy'),'mohu.momo@hotmail.com',8616261872,2016,2022,std_seq.nextval);
 
-insert into student(std_id,std_name,std_dept,std_dob,std_mail_id,std_mob_no,joining_yr,pass_yr)
-values (std_seq.nextval,'sandy sam','MECH',to_date ('08-DEC-1986','dd-MM-yyyy'),'sam.bro@yahoo.com',9983762351,2014,2020);
+insert into student(std_name,std_dept,std_dob,std_mail_id,std_mob_no,joining_yr,pass_yr,std_id)
+values ('sandy sam','MECH',to_date ('08-DEC-1986','dd-MM-yyyy'),'sam.bro@yahoo.com',9983762351,2014,2020,std_seq.nextval);
 
-insert into student(std_id,std_name,std_dept,std_dob,std_mail_id,std_mob_no,joining_yr,pass_yr)
-values (std_seq.nextval,'sugu','EEE',to_date ('12-MAR-1997','dd-MM-yyyy'),'sugu.raja@gmail.com',8616261872,2016,2022);
+insert into student(std_name,std_dept,std_dob,std_mail_id,std_mob_no,joining_yr,pass_yr,std_id)
+values ('sugu','EEE',to_date ('12-MAR-1997','dd-MM-yyyy'),'sugu.raja@gmail.com',8616261872,2016,2022,std_seq.nextval);
 
-insert into student(std_id,std_name,std_dept,std_dob,std_mail_id,std_mob_no,joining_yr,pass_yr)
-values (std_seq.nextval,'suri','MECH',to_date ('15-FEB-1998','dd-MM-yyyy'),'suri.parotta@hotmail.com',8874663782,2012,2020);
+insert into student(std_name,std_dept,std_dob,std_mail_id,std_mob_no,joining_yr,pass_yr,std_id)
+values ('suri','MECH',to_date ('15-FEB-1998','dd-MM-yyyy'),'suri.parotta@hotmail.com',8874663782,2012,2020,std_seq.nextval);
 
 
 ```
@@ -233,14 +229,15 @@ After updation.
 
 ### Insertion Part
 ```sql
-insert into books(book_id,book_name,book_cat,book_author,book_edition,no_of_bks,no_of_pgs,purchased_date)
-values (id_seq.nextval,'&book_name','&book_cat','&book_author',&book_edition,&no_of_bks,&no_of_pgs,&purchased_date);
+insert into student(std_name,std_dept,std_dob,std_mail_id,std_mob_no,joining_yr,pass_yr,std_id)
+values ('&std_name','&std_dept',to_date ('&std_dob','dd-MM-yyyy'),'&std_mail_id',&std_mob_no,&joining_yr,&pass_yr,std_seq.nextval);
 
-insert into student(std_id,std_name,std_dept,std_dob,std_mail_id,std_mob_no,joining_yr,pass_yr)
-values (std_seq.nextval,'&std_name','&std_dept',to_date ('&std_dob','dd-MM-yyyy'),'&std_mail_id',&std_mob_no,&joining_yr,&pass_yr);
+insert into books(book_name,book_cat,book_author,book_edition,no_of_bks,no_of_pgs,purchased_date,book_id)
+values ('&book_name','&book_cat','&book_author',&book_edition,&no_of_bks,&no_of_pgs,&purchased_date,id_seq.nextval);
 
-insert into details(,book_id,std_id,book_count)
+insert into details(book_id,std_id,book_count)
 values (&book_id,&std_id,book_count_sq.nextval);
+
 
 DECLARE
 i_book_id number:= &book_id ;

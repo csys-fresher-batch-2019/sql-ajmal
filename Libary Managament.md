@@ -270,6 +270,10 @@ values ('&book_name','&book_cat','&book_author',&book_edition,&no_of_bks,&no_of_
 insert into details(book_id,std_id,book_count)
 values (&book_id,&std_id,book_count_sq.nextval);
 ```
+* Addition of number of books
+```sql
+update books set no_of_bks= (no_of_bks+&no_of_bks) where book_name=&book_name and book_edition=&book_edition;
+```
 * Updation of return record
 ```sql
 DECLARE

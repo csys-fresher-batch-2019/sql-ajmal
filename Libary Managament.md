@@ -24,9 +24,9 @@ constraint no_of_bks_ck check (no_of_bks>0));
 create sequence id_seq start with 101 increment by 1;
 
 insert into books(book_name,book_cat,book_author,book_edition,no_of_bks,no_of_pgs,purchased_date,book_id)
-values (,'Electronic Devices and Circuits','Electronics','Boylested,Robert.L',1,20,342,to_date ('15-FEB-1998','dd-MM-yyyy'),id_seq.nextval);
+values ('Electronic Devices and Circuits','studies','Boylested,Robert.L',1,20,342,to_date ('15-FEB-1998','dd-MM-yyyy'),id_seq.nextval);
 insert into books(book_name,book_cat,book_author,book_edition,book_price,no_of_bks,no_of_pgs,purchased_date,book_id)
-values ('Ciruit Theory','Electrical','salaivananan',2,158,10,234,to_date ('15-FEB-2015','dd-MM-yyyy'),id_seq.nextval);
+values ('Ciruit Theory','studies','salaivananan',2,158,10,234,to_date ('15-FEB-2015','dd-MM-yyyy'),id_seq.nextval);
 insert into books(book_name,book_cat,book_author,book_edition,no_of_bks,no_of_pgs,purchased_date,book_id)
 values ('Bsuiness @ The Speed of Thought','Bussiness','Bill Gates',1,25,145,to_date ('15-FEB-2017','dd-MM-yyyy'),id_seq.nextval);
 insert into books(book_name,book_cat,book_author,book_edition,book_price,no_of_bks,no_of_pgs,purchased_date,book_id)
@@ -45,10 +45,10 @@ select * from books
 +---------+--------------------+---------------+-------------+-------------+--------+---------------+--------+-------+
 | book_id | book_name          | book_cat      | book_author | book_edition| price  | purchase date | copies | pages |
 +---------+--------------------+---------------+-------------+-------------+--------+---------------+--------+-------+
-| 101     | Electronic Devices | Electronics   | Boylested,  | 1           |        | 15-02-98      | 20     | 342   |
+| 101     | Electronic Devices | studies       | Boylested,  | 1           |        | 15-02-98      | 20     | 342   |
 |         | and Circuits       |               | Robert.L    |             |        |               |        |       |
 +---------+--------------------+---------------+-------------+-------------+--------+---------------+--------+-------+
-| 102     | Ciruit Theory      | Electrical    | salaivananan| 2           | 158    | 15-02-15      | 10     | 234   |
+| 102     | Ciruit Theory      | studies       | salaivananan| 2           | 158    | 15-02-15      | 10     | 234   |
 +---------+--------------------+---------------+-------------+-------------+--------+---------------+--------+-------+
 | 103     | Bsuiness@The Speed | Bussiness     | Bill Gates  | 1           |        | 15-02-17      | 25     | 145   |
 |         | of Thought         |               |             |             |        |               |        |       |

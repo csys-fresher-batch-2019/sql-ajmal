@@ -255,12 +255,19 @@ details_pr(i_book_id,i_std_id,i_returned_date, v_error );
 END;
 
 ```
-number of person who has not returned the books
+* number of person who has not returned the books
 ```sql
 
 select count(book_id) from details where returned_date is null;
 ```
-number of books that a student taken
+* number of books that a student taken
 ```sql
 select count(book_id) from details where std_id=&std_id;
 ```
+* No of books not returned
+```sql
+select count(book_id)from details where book_id=&book_id and returned_date is null;
+```
+* no of books available from libare
+```sql
+select no_of_bks from books where book_id = &book_id;

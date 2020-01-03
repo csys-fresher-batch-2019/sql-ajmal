@@ -3,6 +3,10 @@
 
 ## Features
 * List of Books and their maintainence record.
+* Student record.
+* Entry and Exit record.
+* Inserting new student and books record.
+
 
 ### Feature 1: List of book details.
 ```sql

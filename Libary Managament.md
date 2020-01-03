@@ -147,7 +147,6 @@ Query
 ``sql
 select * from details;
 ```
-
 +------------+---------+--------+------------+----------+---------------+------+
 | book_count | book_id | std_id | issue_date | due_date | returned_date | fine |
 +------------+---------+--------+------------+----------+---------------+------+
@@ -168,6 +167,7 @@ select * from details;
 
 ### Feature 4.
 * updation of table details after return
+
 ```sql
 create or replace procedure details_pr
 (i_book_id number,

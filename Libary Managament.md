@@ -2,7 +2,7 @@
 * http://libarydetails.in
 
 ## Features
-*List of Books and their maintainence record.
+* List of Books and their maintainence record.
 
 ### Feature 1: List of book details.
 ```sql

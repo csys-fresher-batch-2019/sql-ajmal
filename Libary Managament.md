@@ -306,7 +306,7 @@ select count(book_id)from details where book_id=&book_id and returned_date is nu
 * no of books available from libare
 ```sql
 select no_of_bks from books where book_id = &book_id;
-
+```
 * no of books available now using function.
 ```sql
 create or replace function fn_rem_bks(i_book_id number)
